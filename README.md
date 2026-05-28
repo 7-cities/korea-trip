@@ -5,8 +5,12 @@ and the Python sync tooling that keeps it in step with the planning Google Sheet
 
 ## Live site
 
+**https://korea-trip-ecru.vercel.app**
+
 Deployed on Vercel as a static PWA. On phone, use the browser's "Add to Home Screen"
 to install it like a native app — works offline once visited.
+
+Project: `michael-tarrs-projects/korea-trip` on Vercel.
 
 ## Layout
 
