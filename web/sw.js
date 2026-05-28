@@ -5,7 +5,7 @@
 //   - Cache-first with network update for Leaflet CDN assets + map tiles.
 //   - Tiles are cached opportunistically as the user pans/zooms; offline reuse limited to visited areas.
 
-const VERSION = 'v1';
+const VERSION = 'v2';
 const SHELL_CACHE = `korea2026-shell-${VERSION}`;
 const RUNTIME_CACHE = `korea2026-runtime-${VERSION}`;
 
