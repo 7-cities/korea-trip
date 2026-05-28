@@ -10,7 +10,7 @@ and the Python sync tooling that keeps it in step with the planning Google Sheet
 Deployed on Vercel as a static PWA. On phone, use the browser's "Add to Home Screen"
 to install it like a native app — works offline once visited.
 
-Project: `michael-tarrs-projects/korea-trip` on Vercel.
+Project: `michael-tarrs-projects/korea-trip` on Vercel — connected to this repo for auto-deploy on push to `main`.
 
 ## Layout
 
