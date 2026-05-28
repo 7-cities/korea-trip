@@ -54,6 +54,48 @@
   .pin-popup .visited-toggle input { margin: 0; }
   .hotel-marker { background: #d32f2f; width: 16px; height: 16px; border-radius: 50%; border: 3px solid white; box-shadow: 0 2px 4px rgba(0,0,0,0.3); }
 
+  /* "New version available" banner — shown when a waiting SW is detected */
+  #update-banner {
+    position: fixed;
+    left: 50%; transform: translateX(-50%);
+    bottom: max(20px, env(safe-area-inset-bottom));
+    background: #1976d2; color: white;
+    padding: 10px 14px;
+    border-radius: 999px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+    font-size: 13px;
+    display: none;
+    align-items: center; gap: 10px;
+    z-index: 2000;
+    cursor: pointer;
+    user-select: none;
+  }
+  #update-banner.visible { display: flex; }
+  #update-banner button {
+    background: white; color: #1976d2;
+    border: none; padding: 4px 10px;
+    border-radius: 999px;
+    font-size: 12px; font-weight: 600;
+    cursor: pointer;
+  }
+
+  /* "Check for updates" link inside drawer footer */
+  .drawer-footer {
+    margin-top: 24px;
+    padding-top: 12px;
+    border-top: 1px solid #e0e0e0;
+    font-size: 11px;
+    color: #888;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .drawer-footer button {
+    background: none; border: none; color: #1976d2;
+    font-size: 11px; cursor: pointer; padding: 0;
+    text-decoration: underline;
+  }
+
   /* Mobile-only chrome (hidden by default; shown via @media below) */
   .filter-fab,
   .sidebar-close,
@@ -182,7 +224,16 @@
 
     <h2>Trip pins</h2>
     <div id="trip-pins"></div>
+
+    <div class="drawer-footer">
+      <span id="version-tag">v2026.05.28</span>
+      <button id="check-updates" type="button">Check for updates</button>
+    </div>
   </aside>
+  <div id="update-banner" role="status" aria-live="polite">
+    <span>New version available</span>
+    <button id="update-reload">Reload</button>
+  </div>
   <div id="map"></div>
 </div>
 
@@ -435,10 +486,77 @@ setTimeout(() => map.flyTo([37.5731, 126.9870], 12, { duration: 0.8 }), 300);
 
 // Register service worker so the map works offline once cached.
 // Skip on file:// (when opening index.html directly) — SW requires http(s).
+//
+// Update flow:
+//   - On load + on tab focus, call registration.update() to ask SW for a fresh sw.js.
+//   - When a new SW is "waiting" (installed but not yet active), show the blue update banner.
+//   - User taps Reload -> we postMessage SKIP_WAITING -> new SW activates -> we reload the page.
+//   - The "Check for updates" button in the drawer triggers the same flow manually.
+const banner = document.getElementById('update-banner');
+const reloadBtn = document.getElementById('update-reload');
+const checkBtn = document.getElementById('check-updates');
+
+function showUpdateBanner(waitingWorker) {
+  if (!banner) return;
+  banner.classList.add('visible');
+  reloadBtn.onclick = () => {
+    if (waitingWorker) {
+      waitingWorker.postMessage({ type: 'SKIP_WAITING' });
+    } else {
+      window.location.reload();
+    }
+  };
+}
+
 if ('serviceWorker' in navigator && location.protocol !== 'file:') {
   window.addEventListener('load', () => {
-    navigator.serviceWorker.register('./sw.js').catch(err => {
+    navigator.serviceWorker.register('./sw.js').then(reg => {
+      // If a waiting SW already exists at registration time, show banner.
+      if (reg.waiting) showUpdateBanner(reg.waiting);
+
+      // When a new SW is found, watch for it becoming "installed" while one is active.
+      reg.addEventListener('updatefound', () => {
+        const newSW = reg.installing;
+        if (!newSW) return;
+        newSW.addEventListener('statechange', () => {
+          if (newSW.state === 'installed' && navigator.serviceWorker.controller) {
+            showUpdateBanner(newSW);
+          }
+        });
+      });
+
+      // Ask SW to check for updates on tab focus (covers iOS PWA "open from home screen")
+      document.addEventListener('visibilitychange', () => {
+        if (document.visibilityState === 'visible') reg.update().catch(() => {});
+      });
+
+      // Manual "Check for updates" button in the drawer footer
+      if (checkBtn) {
+        checkBtn.onclick = async () => {
+          checkBtn.textContent = 'Checking…';
+          try {
+            await reg.update();
+            // If still no waiting SW after update(), we're already up to date
+            setTimeout(() => {
+              checkBtn.textContent = reg.waiting ? 'Update ready' : 'Up to date';
+              setTimeout(() => { checkBtn.textContent = 'Check for updates'; }, 2500);
+            }, 800);
+          } catch (e) {
+            checkBtn.textContent = 'Offline';
+            setTimeout(() => { checkBtn.textContent = 'Check for updates'; }, 2500);
+          }
+        };
+      }
+    }).catch(err => {
       console.warn('SW registration failed:', err);
+    });
+
+    // When the active SW changes (after skipWaiting), reload the page so the new HTML/JS take effect.
+    let reloading = false;
+    navigator.serviceWorker.addEventListener('controllerchange', () => {
+      if (reloading) return;
+      reloading = true;
+      window.location.reload();
     });
   });
 }

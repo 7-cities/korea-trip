@@ -1,21 +1,20 @@
 // Service worker for Korea Trip 2026 map.
 // Strategy:
-//   - Precache the app shell (HTML, JS, manifest, icons) for offline launch.
-//   - Network-first for places_data.js so updates show up when online.
-//   - Cache-first with network update for Leaflet CDN assets + map tiles.
-//   - Tiles are cached opportunistically as the user pans/zooms; offline reuse limited to visited areas.
+//   - Precache the app shell (icons, manifest) for offline launch.
+//   - Network-first for HTML + places_data.js so deploys land on next page-load when online.
+//   - Cache-first for Leaflet CDN + map tiles (rarely change; offline reuse limited to visited areas).
 
-const VERSION = 'v2';
+const VERSION = 'v3';
 const SHELL_CACHE = `korea2026-shell-${VERSION}`;
 const RUNTIME_CACHE = `korea2026-runtime-${VERSION}`;
 
+// Pre-cache only the static, rarely-changing assets. HTML + places_data.js are network-first
+// (precaching them would just put us right back in the "stale on iOS PWA" trap).
 const SHELL_ASSETS = [
-  './',
-  './index.html',
   './manifest.webmanifest',
   './icon-192.png',
   './icon-512.png',
-  // Leaflet CDN (cache-first; falls back to network on miss)
+  './favicon.svg',
   'https://unpkg.com/leaflet@1.9.4/dist/leaflet.css',
   'https://unpkg.com/leaflet@1.9.4/dist/leaflet.js',
   'https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css',
@@ -43,35 +42,51 @@ self.addEventListener('activate', (event) => {
   );
 });
 
+// Listen for a SKIP_WAITING message from the page so users can tap "refresh" to activate
+// a freshly-installed waiting SW immediately, instead of waiting for the next launch.
+self.addEventListener('message', (event) => {
+  if (event.data && event.data.type === 'SKIP_WAITING') {
+    self.skipWaiting();
+  }
+});
+
 self.addEventListener('fetch', (event) => {
   const req = event.request;
   if (req.method !== 'GET') return;
 
   const url = new URL(req.url);
+  const isNavigation = req.mode === 'navigate' ||
+    (req.method === 'GET' && req.headers.get('accept')?.includes('text/html'));
 
-  // 1) places_data.js — network-first so itinerary updates land
+  // 1) Page navigations / HTML — network-first so new deploys land immediately when online
+  if (isNavigation) {
+    event.respondWith(networkFirst(req, RUNTIME_CACHE, './index.html'));
+    return;
+  }
+
+  // 2) places_data.js — network-first so itinerary updates show up
   if (url.pathname.endsWith('/places_data.js')) {
     event.respondWith(networkFirst(req, RUNTIME_CACHE));
     return;
   }
 
-  // 2) Map tiles — cache-first, store opportunistically
+  // 3) Map tiles — cache-first, store opportunistically
   if (url.hostname.endsWith('.tile.openstreetmap.org')) {
     event.respondWith(cacheFirst(req, RUNTIME_CACHE));
     return;
   }
 
-  // 3) Same-origin shell assets — cache-first
+  // 4) Same-origin shell assets (icons, manifest, sw.js) — cache-first
   if (url.origin === self.location.origin) {
     event.respondWith(cacheFirst(req, SHELL_CACHE));
     return;
   }
 
-  // 4) Everything else (Leaflet CDN, naver/google deep links opened in new tabs) — stale-while-revalidate
+  // 5) Everything else (CDN) — stale-while-revalidate
   event.respondWith(staleWhileRevalidate(req, RUNTIME_CACHE));
 });
 
-async function networkFirst(req, cacheName) {
+async function networkFirst(req, cacheName, fallbackUrl) {
   try {
     const res = await fetch(req);
     if (res && res.ok) {
@@ -82,6 +97,10 @@ async function networkFirst(req, cacheName) {
   } catch (e) {
     const cached = await caches.match(req);
     if (cached) return cached;
+    if (fallbackUrl) {
+      const fb = await caches.match(fallbackUrl);
+      if (fb) return fb;
+    }
     throw e;
   }
 }
