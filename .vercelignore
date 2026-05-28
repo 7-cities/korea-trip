@@ -1,0 +1,5 @@
+tools/
+places.json
+README.md
+*.md
+.claude/

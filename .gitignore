@@ -1,0 +1,36 @@
+# OS / editor cruft
+.DS_Store
+Thumbs.db
+desktop.ini
+*.swp
+.vscode/
+.idea/
+
+# Vercel + local agent state
+.vercel/
+.claude/
+
+# Sync workflow byproducts (kept local; canonical data lives in places.json + web/places_data.js)
+tools/sheet.xlsx
+tools/sheet.prev.xlsx
+tools/sheet_hyperlinks.json
+tools/sheet_raw.md
+tools/places.prev.json
+tools/places_post_cut.json
+tools/places_failed.json
+tools/additions_pending*.json
+tools/additions_geocoded.json
+tools/cuts.json
+tools/real_cuts*.json
+tools/renames*.json
+tools/rename_geocoded.json
+tools/gyeongju_geocoded.json
+tools/extras_*.json
+tools/recovery_*.json
+tools/geocode_cache.json
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
