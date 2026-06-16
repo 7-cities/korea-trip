@@ -1,8 +1,8 @@
 const PLACES = [
   {
-    "type": "Bookstore",
+    "type": "Culture",
     "name_kr": "수원스타필드",
-    "name_en": "Suwon Starfield",
+    "name_en": "Suwon Starfield (bookstore)",
     "address": "경기도 수원시 장안구 수성로 175 스타필드",
     "google_url": "https://www.google.com/maps/search/?api=1&query=스타필드+수원",
     "notes": "",
@@ -15,7 +15,7 @@ const PLACES = [
     "naver_url": "https://naver.me/xWTnpnqm"
   },
   {
-    "type": "Craft",
+    "type": "Art Class",
     "name_kr": "화실 난",
     "name_en": "Hwasi Nan Studio",
     "address": "서울특별시 중구 을지로3가 (화실 난)",
@@ -30,7 +30,7 @@ const PLACES = [
     "naver_url": "https://map.naver.com/v5/search/화실난"
   },
   {
-    "type": "Culture",
+    "type": "Museum",
     "name_kr": "신라문화원",
     "name_en": "Silla Culture Center",
     "address": "경상북도 경주시 노서동 120-4",
@@ -105,7 +105,7 @@ const PLACES = [
     "naver_url": "https://map.naver.com/p/search/북촌 한옥마을"
   },
   {
-    "type": "Culture",
+    "type": "Heritage",
     "name_kr": "창의문",
     "name_en": "Changui Gate",
     "address": "서울특별시 종로구 부암동 248",
@@ -120,7 +120,7 @@ const PLACES = [
     "naver_url": "https://map.naver.com/p/search/창의문"
   },
   {
-    "type": "Culture",
+    "type": "Art Class",
     "name_kr": "한지가헌",
     "name_en": "Hanji House",
     "address": "서울특별시 종로구 재동 8",
@@ -165,7 +165,7 @@ const PLACES = [
     "naver_url": "https://map.naver.com/p/search/백제문화단지"
   },
   {
-    "type": "Culture/Food",
+    "type": "Culture",
     "name_kr": "황리단길",
     "name_en": "Hwangnidan-gil",
     "address": "경상북도 경주시 황남동 311 (황리단길)",
@@ -180,7 +180,7 @@ const PLACES = [
     "naver_url": "https://map.naver.com/v5/search/황리단길"
   },
   {
-    "type": "Culture/Museum",
+    "type": "Museum",
     "name_kr": "윤동주문학관",
     "name_en": "Yun Dong-ju Literature Museum",
     "address": "서울특별시 종로구 청운동 3-100 윤동주문학관",
@@ -195,7 +195,7 @@ const PLACES = [
     "naver_url": "https://map.naver.com/p/search/윤동주문학관"
   },
   {
-    "type": "Culture/Nature",
+    "type": "Heritage",
     "name_kr": "불국사",
     "name_en": "Bulguksa Temple",
     "address": "경상북도 경주시 진현동 15-1 (불국사)",
@@ -210,7 +210,7 @@ const PLACES = [
     "naver_url": "https://map.naver.com/v5/search/불국사"
   },
   {
-    "type": "Culture/Nature",
+    "type": "Heritage",
     "name_kr": "석굴암",
     "name_en": "Seokguram Grotto",
     "address": "경상북도 경주시 진현동 999 (석굴암)",
@@ -225,7 +225,7 @@ const PLACES = [
     "naver_url": "https://map.naver.com/v5/search/석굴암"
   },
   {
-    "type": "Culture/Nature",
+    "type": "Nature & Culture",
     "name_kr": "뚝섬문화예술공원",
     "name_en": "Ttukseom Culture & Arts Park",
     "address": "서울특별시 성동구 성수동1가 685-1",
@@ -240,7 +240,7 @@ const PLACES = [
     "naver_url": "https://map.naver.com/p/search/뚝섬문화예술공원"
   },
   {
-    "type": "Culture/Nature",
+    "type": "Heritage",
     "name_kr": "종묘",
     "name_en": "Jongmyo Shrine",
     "address": "서울특별시 종로구 훈정동 1-2",
@@ -270,9 +270,9 @@ const PLACES = [
     "naver_url": "https://map.naver.com/p/search/공산성"
   },
   {
-    "type": "Food",
+    "type": "Restaurant",
     "name_kr": "도미",
-    "name_en": "Domi",
+    "name_en": "Domi (Shakshuka, pizza)",
     "address": "경상북도 경주시 노동동 17-2",
     "google_url": "https://www.google.com/maps/search/?api=1&query=경상북도+경주시+노동동+17-2",
     "notes": "",
@@ -285,7 +285,7 @@ const PLACES = [
     "naver_url": "https://map.naver.com/p/search/경상북도%20경주시%20노동동%2017-2"
   },
   {
-    "type": "Food",
+    "type": "Coffee & Bakery",
     "name_kr": "스타벅스 경동1960점",
     "name_en": "Starbucks Gyeongdong 1960 Branch",
     "address": "서울특별시 동대문구 제기동 1019",
@@ -300,7 +300,7 @@ const PLACES = [
     "naver_url": "https://map.naver.com/p/search/스타벅스 경동1960점"
   },
   {
-    "type": "Food",
+    "type": "Restaurant",
     "name_kr": "그레인서울",
     "name_en": "Grain Seoul",
     "address": "서울특별시 서대문구 연희동 192-29 2층",
@@ -315,7 +315,7 @@ const PLACES = [
     "naver_url": "https://map.naver.com/p/search/그레인서울"
   },
   {
-    "type": "Food",
+    "type": "Coffee & Bakery",
     "name_kr": "로우키 연희점",
     "name_en": "Lowkey Yeonhui",
     "address": "서울특별시 서대문구 연희동 433-8",
@@ -330,7 +330,7 @@ const PLACES = [
     "naver_url": "https://map.naver.com/p/search/로우키 연희점"
   },
   {
-    "type": "Food",
+    "type": "Coffee & Bakery",
     "name_kr": "샌드커피 논탄토 신촌",
     "name_en": "Sand Coffee Nontanto Sinchon",
     "address": "서울특별시 서대문구 창천동 30-11 (샌드커피 논탄토 신촌)",
@@ -345,7 +345,7 @@ const PLACES = [
     "naver_url": "https://map.naver.com/v5/search/샌드커피%20논탄토%20신촌"
   },
   {
-    "type": "Food",
+    "type": "Restaurant",
     "name_kr": "서래마을카페거리",
     "name_en": "Seorae Village Café Street",
     "address": "서울특별시 서초구 반포동 126",
@@ -360,7 +360,7 @@ const PLACES = [
     "naver_url": "https://map.naver.com/p/search/서래마을 카페거리"
   },
   {
-    "type": "Food",
+    "type": "Coffee & Bakery",
     "name_kr": "도토리오븐",
     "name_en": "Dotori Oven",
     "address": "서울특별시 성동구 성수동2가 316-53",
@@ -390,7 +390,7 @@ const PLACES = [
     "naver_url": "https://map.naver.com/p/search/PETRA"
   },
   {
-    "type": "Food",
+    "type": "Coffee & Bakery",
     "name_kr": "1인1잔",
     "name_en": "1 Person 1 Table Café",
     "address": "서울특별시 은평구 진관동 219",
@@ -405,7 +405,7 @@ const PLACES = [
     "naver_url": "https://map.naver.com/p/search/1인1잔"
   },
   {
-    "type": "Food",
+    "type": "Restaurant",
     "name_kr": "이밥",
     "name_en": "Ibap",
     "address": "서울특별시 종로구 계동 140-49 (이밥)",
@@ -420,7 +420,7 @@ const PLACES = [
     "naver_url": "https://map.naver.com/v5/search/이밥"
   },
   {
-    "type": "Food",
+    "type": "Restaurant",
     "name_kr": "산촌",
     "name_en": "Sanchon",
     "address": "서울특별시 종로구 관훈동 14",
@@ -435,7 +435,7 @@ const PLACES = [
     "naver_url": "https://map.naver.com/p/search/산촌"
   },
   {
-    "type": "Food",
+    "type": "Coffee & Bakery",
     "name_kr": "부암동스코프",
     "name_en": "Buam-dong Scoff",
     "address": "서울특별시 종로구 부암동 278-5 1층",
@@ -480,7 +480,7 @@ const PLACES = [
     "naver_url": "https://map.naver.com/p/search/광장시장"
   },
   {
-    "type": "Food",
+    "type": "Coffee & Bakery",
     "name_kr": "크레페보이",
     "name_en": "Crepe Boy",
     "address": "서울특별시 종로구 통인동 102 1층",
@@ -495,9 +495,9 @@ const PLACES = [
     "naver_url": "https://map.naver.com/p/search/크레페보이"
   },
   {
-    "type": "Food(Buddist)",
+    "type": "Restaurant",
     "name_kr": "마지",
-    "name_en": "Maji",
+    "name_en": "Maji (Buddist)",
     "address": "서울특별시 종로구 체부동 132-1",
     "google_url": "https://www.google.com/maps/search/?api=1&query=서울특별시+종로구+체부동+132-1",
     "notes": "",
@@ -510,7 +510,7 @@ const PLACES = [
     "naver_url": "https://map.naver.com/p/search/마지"
   },
   {
-    "type": "Kids Museum",
+    "type": "Museum",
     "name_kr": "국립중앙과학관",
     "name_en": "National Science Museum of Korea",
     "address": "대전광역시 유성구 구성동 32-2 국립중앙과학관",
@@ -555,7 +555,7 @@ const PLACES = [
     "naver_url": "https://map.naver.com/p/search/종이나라박물관"
   },
   {
-    "type": "Library",
+    "type": "Culture",
     "name_kr": "청운문학도서관",
     "name_en": "Cheongun Literature Library",
     "address": "서울특별시 종로구 청운동 4-20",
@@ -765,7 +765,7 @@ const PLACES = [
     "lng": 127.1122874
   },
   {
-    "type": "Museum/Culture",
+    "type": "Museum",
     "name_kr": "가회민화박물관",
     "name_en": "Gahoe Folk Painting Museum",
     "address": "서울특별시 종로구 북촌로 12 (가회민화박물관)",
@@ -780,7 +780,7 @@ const PLACES = [
     "naver_url": "https://map.naver.com/v5/search/가회민화박물관"
   },
   {
-    "type": "Museum/Culture",
+    "type": "Museum",
     "name_kr": "서울공예박물관",
     "name_en": "Seoul Museum of Craft Art",
     "address": "서울특별시 종로구 안국동 175-112 (서울공예박물관)",
@@ -810,7 +810,7 @@ const PLACES = [
     "naver_url": "https://map.naver.com/p/search/오디움"
   },
   {
-    "type": "Nature",
+    "type": "Heritage",
     "name_kr": "환선굴",
     "name_en": "Hwanseon Cave",
     "address": "강원 삼척시 신기면 환선로 800",
@@ -825,7 +825,7 @@ const PLACES = [
     "naver_url": "https://map.naver.com/v5/search/%ED%99%98%EC%84%A0%EA%B5%B4"
   },
   {
-    "type": "Nature",
+    "type": "Heritage",
     "name_kr": "대금굴",
     "name_en": "Daegum Cave",
     "address": "강원 삼척시 신기면 환선로 800",
@@ -840,7 +840,7 @@ const PLACES = [
     "naver_url": "https://map.naver.com/v5/search/%EB%8C%80%EA%B8%88%EA%B5%B4"
   },
   {
-    "type": "Nature",
+    "type": "Heritage",
     "name_kr": "수원화성",
     "name_en": "Suwon Hwaseong Fortress",
     "address": "경기도 수원시 장안구 정자동 111-14 (수원화성 인근)",
@@ -870,7 +870,7 @@ const PLACES = [
     "naver_url": "https://map.naver.com/p/search/경기도%20양주시%20장흥면%20교현리%20산25-1"
   },
   {
-    "type": "Nature",
+    "type": "Heritage",
     "name_kr": "경주문무대왕릉",
     "name_en": "Tomb of King Munmu (Gyeongju)",
     "address": "경상북도 경주시 문무대왕면 봉길리 30-1",
@@ -885,7 +885,7 @@ const PLACES = [
     "naver_url": "https://map.naver.com/p/search/경주문무대왕릉"
   },
   {
-    "type": "Nature",
+    "type": "Heritage",
     "name_kr": "동궁과 월지",
     "name_en": "Donggung Palace and Wolji Pond",
     "address": "경상북도 경주시 인왕동 920 (동궁과 월지)",
@@ -1308,7 +1308,7 @@ const PLACES = [
     "naver_url": "https://map.naver.com/v5/search/제주유리박물관"
   },
   {
-    "type": "Activities",
+    "type": "Activity",
     "name_kr": "코스믹 리조트",
     "name_en": "Cosmic Resort",
     "address": "경상북도 경주시 손곡동 산87 (코스믹 리조트)",
@@ -1324,7 +1324,7 @@ const PLACES = [
     "naver_url": "https://map.naver.com/v5/search/코스믹%20리조트"
   },
   {
-    "type": "Activities/Entertainment",
+    "type": "Activity",
     "name_kr": "런닝맨 인사동점",
     "name_en": "Running Man Insa-dong Branch",
     "address": "서울특별시 종로구 인사동 43 대일빌딩 지하1층",
@@ -1388,7 +1388,7 @@ const PLACES = [
     "naver_url": "https://map.naver.com/v5/search/인사동%20아트랩"
   },
   {
-    "type": "Art Shop/Activities",
+    "type": "Art Class",
     "name_kr": "자개이야기 진주쉘 북촌",
     "name_en": "Jagae Story Jinju Shell Bukchon",
     "address": "서울특별시 종로구 가회동 172-1 1층, B1",
@@ -1404,7 +1404,7 @@ const PLACES = [
     "naver_url": "https://map.naver.com/p/search/자개이야기 진주쉘 북촌"
   },
   {
-    "type": "Boardgame Cafe",
+    "type": "Culture",
     "name_kr": "더홀릭보드게임카페 홍대점",
     "name_en": "The Holic Board Game Café Hongdae Branch",
     "address": "서울특별시 마포구 서교동 364-26 4층",
@@ -1420,7 +1420,7 @@ const PLACES = [
     "naver_url": "https://map.naver.com/p/search/더홀릭보드게임카페 홍대점"
   },
   {
-    "type": "Bookstore",
+    "type": "Culture",
     "name_kr": "별마당 도서관 (코엑스)",
     "name_en": "Starfield Library (COEX)",
     "address": "서울특별시 강남구 삼성동 159 (별마당도서관 코엑스)",
@@ -1436,7 +1436,7 @@ const PLACES = [
     "naver_url": "https://map.naver.com/v5/search/별마당도서관%20코엑스"
   },
   {
-    "type": "Cartoon Cafe",
+    "type": "Culture",
     "name_kr": "카툰플러스 만화카페",
     "name_en": "Cartoon Plus Comic Café",
     "address": "서울특별시 마포구 서교동 357-5 B1 극장 전층",
@@ -1452,9 +1452,9 @@ const PLACES = [
     "naver_url": "https://map.naver.com/p/search/카툰플러스 만화카페"
   },
   {
-    "type": "Cartoon Cafe",
+    "type": "Culture",
     "name_kr": "그래픽 바이 대신",
-    "name_en": "Graphic by Daeshin",
+    "name_en": "Graphic by Daeshin (Cartoon Cafe)",
     "address": "서울특별시 송파구 장지동 892 대신위례센터 1관 지하1층",
     "google_url": "https://www.google.com/maps/search/?api=1&query=서울특별시+송파구+장지동+892+대신위례센터+1관+지하1층",
     "notes": "",
@@ -1468,7 +1468,7 @@ const PLACES = [
     "naver_url": "https://map.naver.com/p/search/그래픽 바이 대신"
   },
   {
-    "type": "Craft",
+    "type": "Art Class",
     "name_kr": "에어모빌",
     "name_en": "Airmobile Studio",
     "address": "서울특별시 중구 인현동1가 (에어모빌)",
@@ -1484,7 +1484,7 @@ const PLACES = [
     "naver_url": "https://map.naver.com/v5/search/에어모빌"
   },
   {
-    "type": "Craft",
+    "type": "Art Class",
     "name_kr": "알록서울",
     "name_en": "Allok Seoul",
     "address": "서울특별시 중구 주교동 (알록서울)",
@@ -1500,7 +1500,7 @@ const PLACES = [
     "naver_url": "https://map.naver.com/v5/search/알록서울"
   },
   {
-    "type": "Culture/Food",
+    "type": "Culture",
     "name_kr": "한국사찰음식문화체험관",
     "name_en": "Korean Temple Food Experience Center",
     "address": "서울특별시 종로구 안국동 175-3 (한국사찰음식문화체험관)",
@@ -1516,7 +1516,7 @@ const PLACES = [
     "naver_url": "https://map.naver.com/v5/search/한국사찰음식문화체험관"
   },
   {
-    "type": "DIY Jewelry",
+    "type": "Art Class",
     "name_kr": "아델라인 주얼리 스튜디오",
     "name_en": "Adeline Jewelry Studio",
     "address": "서울특별시 종로구 종로3가 (아델라인 주얼리 스튜디오)",
@@ -1532,9 +1532,9 @@ const PLACES = [
     "naver_url": "https://map.naver.com/v5/search/아델라인%20주얼리%20스튜디오"
   },
   {
-    "type": "Food",
+    "type": "Culture",
     "name_kr": "원플레이 건대점",
-    "name_en": "One Play Konkuk Branch",
+    "name_en": "One Play Konkuk Branch (Cartoon Cafe)",
     "address": "서울특별시 광진구 화양동 5-43 2층, 3층",
     "google_url": "https://www.google.com/maps/search/?api=1&query=서울+광진구+화양동+5-43",
     "notes": "",
@@ -1548,7 +1548,7 @@ const PLACES = [
     "naver_url": "https://map.naver.com/p/search/원플레이 건대점"
   },
   {
-    "type": "Food",
+    "type": "Restaurant",
     "name_kr": "도부",
     "name_en": "Dobu",
     "address": "서울특별시 마포구 연남동 241-13 1층, 도부",
@@ -1564,7 +1564,7 @@ const PLACES = [
     "naver_url": "https://map.naver.com/p/search/도부"
   },
   {
-    "type": "Food",
+    "type": "Restaurant",
     "name_kr": "조앤도슨",
     "name_en": "Joe & Dawson",
     "address": "서울특별시 마포구 연남동 254-8 (조앤도슨)",
@@ -1580,7 +1580,7 @@ const PLACES = [
     "naver_url": "https://map.naver.com/v5/search/조앤도슨"
   },
   {
-    "type": "Food",
+    "type": "Coffee & Bakery",
     "name_kr": "비전스트롤 연희 로스터리",
     "name_en": "Visionstroll Yeonhui Roastery",
     "address": "서울특별시 서대문구 연희동 128-3 1층",
@@ -1596,7 +1596,7 @@ const PLACES = [
     "naver_url": "https://map.naver.com/p/search/비전스트롤 연희 로스터리"
   },
   {
-    "type": "Food",
+    "type": "Coffee & Bakery",
     "name_kr": "프로토콜 연희점",
     "name_en": "Protocol Yeonhui Branch",
     "address": "서울특별시 서대문구 연희동 137-1 2층",
@@ -1612,7 +1612,7 @@ const PLACES = [
     "naver_url": "https://map.naver.com/p/search/프로토콜 연희점"
   },
   {
-    "type": "Food",
+    "type": "Coffee & Bakery",
     "name_kr": "오트 연희",
     "name_en": "Oat Yeonhui",
     "address": "서울특별시 서대문구 연희동 89-50 오트",
@@ -1628,7 +1628,7 @@ const PLACES = [
     "naver_url": "https://map.naver.com/p/search/오트 연희"
   },
   {
-    "type": "Food",
+    "type": "Restaurant",
     "name_kr": "한옥그레이스",
     "name_en": "Hanok Grace",
     "address": "서울특별시 서대문구 충정로2가 16-20 (한옥그레이스)",
@@ -1644,7 +1644,7 @@ const PLACES = [
     "naver_url": "https://map.naver.com/v5/search/한옥그레이스"
   },
   {
-    "type": "Food",
+    "type": "Restaurant",
     "name_kr": "에피코어",
     "name_en": "Epico",
     "address": "서울특별시 성동구 성수동1가 26-3 1층",
@@ -1660,7 +1660,7 @@ const PLACES = [
     "naver_url": "https://map.naver.com/p/search/에피코어"
   },
   {
-    "type": "Food",
+    "type": "Coffee & Bakery",
     "name_kr": "라프레플루트",
     "name_en": "La Fée Flûte",
     "address": "서울특별시 성동구 성수동1가 685-495 (라프레플루트)",
@@ -1676,7 +1676,7 @@ const PLACES = [
     "naver_url": "https://map.naver.com/v5/search/라프레플루트"
   },
   {
-    "type": "Food",
+    "type": "Coffee & Bakery",
     "name_kr": "달임막",
     "name_en": "Dalimak",
     "address": "서울특별시 성동구 성수동2가 (달임막)",
@@ -1692,7 +1692,7 @@ const PLACES = [
     "naver_url": "https://map.naver.com/v5/search/달임막"
   },
   {
-    "type": "Food",
+    "type": "Restaurant",
     "name_kr": "천상가옥",
     "name_en": "Cheonsang Gaok",
     "address": "서울특별시 성동구 성수동2가 (천상가옥)",
@@ -1708,7 +1708,7 @@ const PLACES = [
     "naver_url": "https://map.naver.com/v5/search/천상가옥"
   },
   {
-    "type": "Food",
+    "type": "Coffee & Bakery",
     "name_kr": "립스위치",
     "name_en": "Lipswitch",
     "address": "서울특별시 성동구 성수동2가 289-306 1층",
@@ -1724,7 +1724,7 @@ const PLACES = [
     "naver_url": "https://map.naver.com/p/search/립스위치"
   },
   {
-    "type": "Food",
+    "type": "Coffee & Bakery",
     "name_kr": "미스틱래빗",
     "name_en": "Mystic Rabbit",
     "address": "서울특별시 송파구 송파동 135 (미스틱래빗)",
@@ -1740,7 +1740,7 @@ const PLACES = [
     "naver_url": "https://map.naver.com/v5/search/미스틱래빗"
   },
   {
-    "type": "Food",
+    "type": "Restaurant",
     "name_kr": "선채 용산",
     "name_en": "Seonchae Yongsan",
     "address": "서울특별시 용산구 한강로1가 221-2 지하1층",
@@ -1756,7 +1756,7 @@ const PLACES = [
     "naver_url": "https://map.naver.com/p/search/선채 용산"
   },
   {
-    "type": "Food",
+    "type": "Restaurant",
     "name_kr": "로마의 향기",
     "name_en": "Roman Scent",
     "address": "서울특별시 용산구 한강로2가 44-2 202, 203호",
@@ -1772,7 +1772,7 @@ const PLACES = [
     "naver_url": "https://map.naver.com/p/search/로마의 향기"
   },
   {
-    "type": "Food",
+    "type": "Restaurant",
     "name_kr": "근본양만 용산",
     "name_en": "Geunbon Yangman Yongsan",
     "address": "서울특별시 용산구 한강로2가 44-2 204호",
@@ -1788,7 +1788,7 @@ const PLACES = [
     "naver_url": "https://map.naver.com/p/search/근본양만 용산"
   },
   {
-    "type": "Food",
+    "type": "Restaurant",
     "name_kr": "버누드 BurnWood",
     "name_en": "BurnWood",
     "address": "서울특별시 용산구 한강로3가 40-132 2층",
@@ -1804,7 +1804,7 @@ const PLACES = [
     "naver_url": "https://map.naver.com/p/search/버누드 BurnWood"
   },
   {
-    "type": "Food",
+    "type": "Restaurant",
     "name_kr": "오르노 신용산점",
     "name_en": "Orno SinYongsan Branch",
     "address": "서울특별시 용산구 한강로3가 40-355 1층",
@@ -1820,7 +1820,7 @@ const PLACES = [
     "naver_url": "https://map.naver.com/p/search/오르노 신용산점"
   },
   {
-    "type": "Food",
+    "type": "Restaurant",
     "name_kr": "유소바 안국역점",
     "name_en": "Yusoba Anguk Station",
     "address": "서울특별시 종로구 계동 140-56 (유소바 안국역점)",
@@ -1836,7 +1836,7 @@ const PLACES = [
     "naver_url": "https://map.naver.com/v5/search/유소바%20안국역점"
   },
   {
-    "type": "Food",
+    "type": "Coffee & Bakery",
     "name_kr": "어니언 안국",
     "name_en": "Onion Anguk",
     "address": "서울특별시 종로구 계동 146-1 카페 어니언",
@@ -1852,7 +1852,7 @@ const PLACES = [
     "naver_url": "https://map.naver.com/p/search/어니언 안국"
   },
   {
-    "type": "Food",
+    "type": "Coffee & Bakery",
     "name_kr": "베이커리 아궁",
     "name_en": "Bakery Agung",
     "address": "서울특별시 종로구 관철동 290 1층",
@@ -1868,7 +1868,7 @@ const PLACES = [
     "naver_url": "https://map.naver.com/p/search/베이커리 아궁"
   },
   {
-    "type": "Food",
+    "type": "Restaurant",
     "name_kr": "삼청동샤브 인사동점",
     "name_en": "Samcheong Shabu Insadong",
     "address": "서울특별시 종로구 관훈동 155-2 (삼청동샤브 인사동점)",
@@ -1884,7 +1884,7 @@ const PLACES = [
     "naver_url": "https://map.naver.com/v5/search/삼청동샤브%20인사동점"
   },
   {
-    "type": "Food",
+    "type": "Restaurant",
     "name_kr": "송암온반",
     "name_en": "Songam Onban",
     "address": "서울특별시 종로구 낙원동 15 (송암온반)",
@@ -1900,7 +1900,7 @@ const PLACES = [
     "naver_url": "https://map.naver.com/v5/search/송암온반"
   },
   {
-    "type": "Food",
+    "type": "Coffee & Bakery",
     "name_kr": "카페하이웨스트 익선점",
     "name_en": "Café Highwaist Ikseon",
     "address": "서울특별시 종로구 돈의동 13 (카페하이웨스트 익선점)",
@@ -1916,7 +1916,7 @@ const PLACES = [
     "naver_url": "https://map.naver.com/v5/search/카페하이웨스트%20익선점"
   },
   {
-    "type": "Food",
+    "type": "Restaurant",
     "name_kr": "희작",
     "name_en": "Hwijak",
     "address": "서울특별시 종로구 부암동 97-3 지하1",
@@ -1932,7 +1932,7 @@ const PLACES = [
     "naver_url": "https://map.naver.com/p/search/희작"
   },
   {
-    "type": "Food",
+    "type": "Restaurant",
     "name_kr": "개뿔",
     "name_en": "Gaepbul",
     "address": "서울특별시 종로구 이화동 9-443 까페 개뿔 1,2층",
@@ -1948,7 +1948,7 @@ const PLACES = [
     "naver_url": "https://map.naver.com/p/search/개뿔"
   },
   {
-    "type": "Food",
+    "type": "Coffee & Bakery",
     "name_kr": "이채 카페",
     "name_en": "Ichae Café",
     "address": "서울특별시 종로구 재동 54-8 (이채카페)",
@@ -1964,7 +1964,7 @@ const PLACES = [
     "naver_url": "https://map.naver.com/v5/search/이채카페"
   },
   {
-    "type": "Food",
+    "type": "Restaurant",
     "name_kr": "진중 우육면관 광화문점",
     "name_en": "Jinjung Beef Noodle Gwanghwamun Branch",
     "address": "서울특별시 종로구 청진동 39 1층 진중 우육면관 광화문",
@@ -1980,7 +1980,7 @@ const PLACES = [
     "naver_url": "https://map.naver.com/p/search/진중 우육면관 광화문점"
   },
   {
-    "type": "Food",
+    "type": "Restaurant",
     "name_kr": "유목민몽골",
     "name_en": "Yukmukmin Mongolian Restaurant",
     "address": "서울특별시 중구 광희동1가 187-1 2층",
@@ -1996,7 +1996,7 @@ const PLACES = [
     "naver_url": "https://map.naver.com/p/search/유목민 몽골"
   },
   {
-    "type": "Food",
+    "type": "Restaurant",
     "name_kr": "어슬 서울",
     "name_en": "Eoseul Seoul",
     "address": "서울특별시 중구 남대문로5가 84-17 에너지플러스 서울로 13층",
@@ -2012,7 +2012,7 @@ const PLACES = [
     "naver_url": "https://map.naver.com/p/search/어슬 서울"
   },
   {
-    "type": "Food",
+    "type": "Restaurant",
     "name_kr": "솔솥 명동점",
     "name_en": "Solsot Myeongdong",
     "address": "서울특별시 중구 명동2가 32-14 (솔솥 명동점)",
@@ -2028,7 +2028,7 @@ const PLACES = [
     "naver_url": "https://map.naver.com/v5/search/솔솥%20명동점"
   },
   {
-    "type": "Food",
+    "type": "Coffee & Bakery",
     "name_kr": "어글리베이커스",
     "name_en": "Ugly Bakers",
     "address": "서울특별시 중구 신당동 112-6 (어글리베이커스)",
@@ -2044,7 +2044,7 @@ const PLACES = [
     "naver_url": "https://map.naver.com/v5/search/어글리베이커스"
   },
   {
-    "type": "Foood",
+    "type": "Restaurant",
     "name_kr": "매드포갈릭 광화문",
     "name_en": "Mad for Garlic Gwanghwamun",
     "address": "서울특별시 종로구 청진동 246 (매드포갈릭 광화문)",
@@ -2060,7 +2060,7 @@ const PLACES = [
     "naver_url": "https://map.naver.com/v5/search/매드포갈릭%20광화문"
   },
   {
-    "type": "Gallery",
+    "type": "Museum",
     "name_kr": "이정숙한국자수갤러리",
     "name_en": "Lee Jung-sook Embroidery Gallery",
     "address": "서울특별시 중구 초동 18-10 (이정숙한국자수갤러리)",
@@ -2754,7 +2754,7 @@ const PLACES = [
     "web_link": "https://english.visitseoul.net/entertainment/Kyobo-Bookstore-Gwanghwamun-Branch/ENP040172"
   },
   {
-    "type": "Nature/Activities",
+    "type": "Nature & Activity",
     "name_kr": "삼척해양레일바이크",
     "name_en": "Bike Rail",
     "address": "강원 삼척시 근덕면 공양왕길 2",
@@ -2784,7 +2784,7 @@ const PLACES = [
   {
     "type": "Theme Park",
     "name_kr": "에버랜드",
-    "name_en": "Everland",
+    "name_en": "Everland(Big Outdoor Amusement Park!!)",
     "address": "경기 용인시 처인구 포곡읍 에버랜드로 199",
     "notes": "Big Outdoor Amusement Park!! / 10 min away from the cemetary I'll visit.",
     "region": "Gyeonggi",
@@ -2810,7 +2810,7 @@ const PLACES = [
     "google_url": "https://www.google.com/maps/search/?api=1&query=%EA%B2%BD%EA%B8%B0%EB%8F%84+%EA%B3%BC%EC%B2%9C%EC%8B%9C+%EB%A7%89%EA%B3%84%EB%8F%99+33"
   },
   {
-    "type": "Food",
+    "type": "Restaurant",
     "name_kr": "중앙감속기",
     "name_en": "B&W Hyunsuk Choi's Restaurant!",
     "address": "서울 성동구 성수동2가 301-98",
@@ -2838,9 +2838,9 @@ const PLACES = [
     "google_url": "https://www.google.com/maps/search/?api=1&query=%EC%98%A4%EB%B8%8C%EC%A0%9D%ED%8A%B8+%EC%84%9C%EA%B5%90%EC%A0%90"
   },
   {
-    "type": "Craft/Pearl Art Class",
+    "type": "Art Class",
     "name_kr": "더영롱",
-    "name_en": "The Yeongrong",
+    "name_en": "The Yeongrong (pearl craft)",
     "address": "서울특별시 마포구 서교동 346-52 1층",
     "notes": "",
     "region": "Seoul",
@@ -2868,7 +2868,7 @@ const PLACES = [
   {
     "type": "Theme Park",
     "name_kr": "롯데월드 어드벤처 수족관",
-    "name_en": "Lotte World Adventure/Aquarium",
+    "name_en": "Lotte World Adventure/Aquarium(biggest in K)",
     "address": "서울특별시 송파구 잠실동 40-1",
     "notes": "biggest in K",
     "region": "Seoul",
@@ -2908,7 +2908,7 @@ const PLACES = [
     "google_url": "https://www.google.com/maps/search/?api=1&query=%EC%84%9C%EC%9A%B8%ED%8A%B9%EB%B3%84%EC%8B%9C+%EC%A2%85%EB%A1%9C%EA%B5%AC+%EC%84%9C%EB%A6%B0%EB%8F%99+33+%EC%A7%80%ED%95%982%EC%B8%B5"
   },
   {
-    "type": "Coffee/Bakery",
+    "type": "Coffee & Bakery",
     "name_kr": "아름다운차박물관",
     "name_en": "Beautiful Tea Museum",
     "address": "서울특별시 종로구 인사동 193-1 (아름다운차박물관)",
@@ -2992,7 +2992,7 @@ const PLACES = [
     "google_url": "https://www.google.com/maps/search/?api=1&query=%EB%8F%99%EB%8C%80%EB%AC%B8%EB%94%94%EC%9E%90%EC%9D%B8%ED%94%8C%EB%9D%BC%EC%9E%90"
   },
   {
-    "type": "Food/Buffet",
+    "type": "Restaurant",
     "name_kr": "52 마켓 플레이스",
     "name_en": "52 Market Place",
     "address": "서울특별시 중구 회현동1가 194-15 보코 서울 명동 2층",
@@ -3006,7 +3006,7 @@ const PLACES = [
     "google_url": "https://www.google.com/maps/search/?api=1&query=%EB%B6%80%ED%8F%89%EC%A4%91%EC%95%99%EC%A7%80%ED%95%98%EC%83%81%EA%B0%80"
   },
   {
-    "type": "Tea",
+    "type": "Coffee & Bakery",
     "name_kr": "서울서둘째로잘하는 집",
     "name_en": "서울서둘째로잘하는 집",
     "address": "서울 종로구 삼청로 122-1",
@@ -3034,7 +3034,7 @@ const PLACES = [
     "google_url": "https://www.google.com/maps/search/?api=1&query=%EA%B0%9C%EC%84%B1%EB%A7%8C%EB%91%90%EA%B6%81"
   },
   {
-    "type": "Coffee/Bakery",
+    "type": "Coffee & Bakery",
     "name_kr": "오설록 티하우스",
     "name_en": "오설록 티하우스",
     "address": "서울 종로구 삼청로 30",
@@ -3048,7 +3048,7 @@ const PLACES = [
     "google_url": "https://www.google.com/maps/search/?api=1&query=%EC%98%A4%EC%84%A4%EB%A1%9D%20%ED%8B%B0%ED%95%98%EC%9A%B0%EC%8A%A4%20%ED%98%84%EB%8C%80%EB%AF%B8%EC%88%A0%EA%B4%80%EC%A0%90"
   },
   {
-    "type": "Nature/hiking",
+    "type": "Heritage",
     "name_kr": "남한산성",
     "name_en": "남한산성",
     "address": "경기 광주시 남한산성면 산성리 산23",

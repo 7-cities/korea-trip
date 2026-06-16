@@ -241,16 +241,20 @@
 <script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
 <script src="places_data.js"></script>
 <script>
-// Category groupings — collapses ~30 raw types into ~10 visual buckets with a color each.
+// Category groupings — collapses raw types into visual buckets with a color each.
+// Order matters: first match wins. Sheet renamed many types on 2026-06-08
+// (Food→Restaurant, Coffee/Bakery→Coffee & Bakery, Nature→Heritage for historic
+// sites, Craft→Art Class, Cartoon Cafe/Bookstore/Boardgame→Culture, etc.).
 const CATEGORY_GROUPS = [
-  { name: "Food",          color: "#e53935", patterns: ["Food", "Foood", "Bakery", "Café", "Cafe", "Buddist"] },
-  { name: "Café / Cafe",   color: "#fb8c00", patterns: ["Cartoon Cafe", "Boardgame"] },
-  { name: "Culture",       color: "#8e24aa", patterns: ["Culture", "Hanok", "Heritage"] },
-  { name: "Museum",        color: "#1e88e5", patterns: ["Museum", "Gallery"] },
-  { name: "Nature",        color: "#43a047", patterns: ["Nature", "Park", "Cave"] },
+  { name: "Restaurant",    color: "#e53935", patterns: ["Restaurant", "Restauarnt", "Food", "Foood", "Buffet"] },
+  { name: "Coffee/Bakery", color: "#fb8c00", patterns: ["Coffee", "Bakery", "Café", "Cafe", "Tea"] },
+  { name: "Heritage",      color: "#6a1b9a", patterns: ["Heritage", "World Heritage"] },
+  { name: "Nature",        color: "#43a047", patterns: ["Nature", "Cave", "hiking", "Forest"] },
   { name: "Kids",          color: "#ec407a", patterns: ["Kids", "Theme Park", "Aquarium"] },
-  { name: "Shopping",      color: "#fdd835", patterns: ["Shopping", "Bookstore", "Shop"] },
-  { name: "Class / DIY",   color: "#26a69a", patterns: ["Art Class", "Baking", "Craft", "DIY", "Classes", "Activities", "Activity"] },
+  { name: "Museum",        color: "#1e88e5", patterns: ["Museum", "Gallery"] },
+  { name: "Culture",       color: "#ab47bc", patterns: ["Culture", "Hanok", "Performance", "K-Traditional", "Library", "Bookstore", "Book"] },
+  { name: "Shopping",      color: "#fdd835", patterns: ["Shopping", "Shop"] },
+  { name: "Art Class",     color: "#26a69a", patterns: ["Art Class", "Baking", "Craft", "DIY", "Classes", "Activities", "Activity"] },
   { name: "Entertainment", color: "#00bcd4", patterns: ["Entertainment", "Game"] },
   { name: "Music",         color: "#d81b60", patterns: ["Music"] },
   { name: "Cable Car",     color: "#5e35b1", patterns: ["Cable Car"] },
