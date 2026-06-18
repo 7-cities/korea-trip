@@ -3104,5 +3104,50 @@ const PLACES = [
     "geocode_source": "google_maps_playwright",
     "lat": 35.8347306,
     "lng": 129.2190014
+  },
+  {
+    "type": "Heritage",
+    "name_kr": "계림",
+    "name_en": "Gyerim Forest",
+    "address": "경상북도 경주시 교동 1",
+    "google_url": "https://www.google.com/maps/search/?api=1&query=계림+경주",
+    "naver_url": "https://map.naver.com/p/search/계림",
+    "notes": "Sacred Silla forest between Cheomseongdae and Woljeonggyo — Day 2 coffee-break stroll",
+    "region": "Gyeongsangbuk-do",
+    "source": "agenda_update_2026-06-16",
+    "geocode_query": "경상북도 경주시 교동 1 계림",
+    "geocode_source": "google_maps_playwright",
+    "lat": 35.8322427,
+    "lng": 129.2173376
+  },
+  {
+    "type": "Heritage",
+    "name_kr": "월정교",
+    "name_en": "Woljeonggyo Bridge",
+    "address": "경상북도 경주시 교동 274",
+    "google_url": "https://www.google.com/maps/search/?api=1&query=월정교+경주",
+    "naver_url": "https://map.naver.com/p/search/월정교",
+    "notes": "Restored Silla-era stone bridge — pairs with Gyerim on Day 2 afternoon",
+    "region": "Gyeongsangbuk-do",
+    "source": "agenda_update_2026-06-16",
+    "geocode_query": "경상북도 경주시 교동 274 월정교",
+    "geocode_source": "google_maps_playwright",
+    "lat": 35.8291928,
+    "lng": 129.2181213
+  },
+  {
+    "type": "Nature & Culture",
+    "name_kr": "경주엑스포대공원",
+    "name_en": "Gyeongju Expo Grand Park",
+    "address": "경상북도 경주시 신평동 1095",
+    "google_url": "https://www.google.com/maps/search/?api=1&query=경주엑스포대공원",
+    "naver_url": "https://map.naver.com/p/search/경주엑스포대공원",
+    "notes": "Large park at Bomun Lake — Day 1 afternoon walk after Sulgeo Art Museum",
+    "region": "Gyeongsangbuk-do",
+    "source": "agenda_update_2026-06-16",
+    "geocode_query": "경상북도 경주시 신평동 1095 경주엑스포대공원",
+    "geocode_source": "google_maps_playwright",
+    "lat": 35.8319999,
+    "lng": 129.2895857
   }
 ];
