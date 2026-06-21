@@ -3149,5 +3149,21 @@
     "geocode_source": "google_maps_playwright",
     "lat": 35.8319999,
     "lng": 129.2895857
+  },
+  {
+    "type": "Work",
+    "name_kr": "익스피디아 그룹 코리아",
+    "name_en": "Expedia Group Korea (Office)",
+    "address": "서울특별시 종로구 종로5길 7, Tower 8 9층 (청진동)",
+    "google_url": "https://www.google.com/maps/search/?api=1&query=타워8+종로",
+    "naver_url": "https://map.naver.com/p/search/타워8",
+    "notes": "Michael's office while working from Seoul (weeks 2–3)",
+    "region": "Seoul",
+    "source": "manual_2026-06-16",
+    "geocode_query": "서울특별시 종로구 종로5길 7 타워8",
+    "geocode_source": "google_maps_place_url",
+    "lat": 37.5706059,
+    "lng": 126.9805337,
+    "district": "종로구"
   }
 ]
