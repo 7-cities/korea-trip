@@ -1274,21 +1274,22 @@ const PLACES = [
     "naver_url": "https://map.naver.com/p/search/이니스프리 제주하우스"
   },
   {
-    "type": "Food",
+    "type": "Coffee & Bakery",
     "name_kr": "카페한라산",
     "name_en": "Cafe Hallasan",
-    "address": "",
+    "address": "제주시 구좌읍 면수1길 48",
     "google_url": "",
-    "notes": "",
+    "notes": "Cafe near the Gujwa/Sehwa east coast",
     "region": "Jeju",
     "subregion": "제주시",
     "source": "jeju_list",
     "district": "",
-    "geocode_query": "Cafe Hallasan Jeju",
-    "lat": 33.5247912,
-    "lng": 126.862923,
+    "geocode_query": "제주 제주시 구좌읍 면수1길 48 카페한라산",
+    "lat": 33.5246978,
+    "lng": 126.8629837,
     "web_link": "https://cafe-hallasan.goto-where.com/",
-    "naver_url": "https://map.naver.com/p/search/카페한라산"
+    "naver_url": "https://map.naver.com/p/search/카페한라산 구좌",
+    "geocode_source": "google_maps_playwright"
   },
   {
     "type": "Museum",
