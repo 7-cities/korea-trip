@@ -3165,5 +3165,20 @@ const PLACES = [
     "lat": 37.5706059,
     "lng": 126.9805337,
     "district": "종로구"
+  },
+  {
+    "type": "Nature",
+    "name_kr": "협재굴",
+    "name_en": "Hyeopjae Cave",
+    "address": "제주특별자치도 제주시 한림읍 한림로 300 (한림공원 내)",
+    "google_url": "https://www.google.com/maps/search/?api=1&query=협재굴",
+    "naver_url": "https://map.naver.com/p/search/협재굴",
+    "notes": "Lava tube with limestone formations — inside Hallim Park (park admission covers it); pairs with Ssangyong Cave next door",
+    "region": "Jeju",
+    "source": "manual_2026-06-19",
+    "geocode_query": "협재굴 제주 한림공원",
+    "geocode_source": "google_maps_playwright",
+    "lat": 33.3879944,
+    "lng": 126.2397837
   }
 ];
