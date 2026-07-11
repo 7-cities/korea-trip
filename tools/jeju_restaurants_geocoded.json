@@ -1,0 +1,48 @@
+{
+  "And Yu Cafe (vegan)": {
+    "lat": 33.4046542,
+    "lng": 126.2543639,
+    "query": "제주시 한림읍 한림로 518 앤드유"
+  },
+  "Dasoni (temple food)": {
+    "lat": 33.4906721,
+    "lng": 126.5177399,
+    "query": "Dasoni vegan Jeju"
+  },
+  "Five Seventh (vegan)": {
+    "lat": 33.5584412,
+    "lng": 126.8135988,
+    "query": "칠분의오 제주 비건"
+  },
+  "Lan's Kitchen (vegan)": {
+    "lat": 33.4575001,
+    "lng": 126.3504018,
+    "query": "란스키친 제주 비건"
+  },
+  "Avec (vegan)": null,
+  "Rajmahal Indian Restaurant": {
+    "lat": 33.4882407,
+    "lng": 126.4902359,
+    "query": "라즈마할 제주"
+  },
+  "Taco Massim": {
+    "lat": 33.5550516,
+    "lng": 126.7972342,
+    "query": "Taco Massim Gujwa Jeju"
+  },
+  "Jeju Gwanghae (hairtail)": {
+    "lat": 33.4877605,
+    "lng": 126.3904307,
+    "query": "제주광해 애월해안로 867"
+  },
+  "Galchi Bada (hairtail)": {
+    "lat": 33.4604647,
+    "lng": 126.3110144,
+    "query": "갈치바다 애월읍 애월로"
+  },
+  "Galchi Amhaengeosa (hairtail)": {
+    "lat": 33.4669641,
+    "lng": 126.320657,
+    "query": "애월 갈치 암행어사"
+  }
+}
