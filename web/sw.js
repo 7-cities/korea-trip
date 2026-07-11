@@ -4,7 +4,7 @@
 //   - Network-first for HTML + places_data.js so deploys land on next page-load when online.
 //   - Cache-first for Leaflet CDN + map tiles (rarely change; offline reuse limited to visited areas).
 
-const VERSION = 'v3';
+const VERSION = 'v4';
 const SHELL_CACHE = `korea2026-shell-${VERSION}`;
 const RUNTIME_CACHE = `korea2026-runtime-${VERSION}`;
 

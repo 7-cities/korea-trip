@@ -222,11 +222,24 @@
     </div>
     <div id="category-filters"></div>
 
+    <div class="section-head">
+      <h2>Jeju day plan</h2>
+      <div class="section-actions">
+        <button data-target="jeju-day" data-action="all">All</button>
+        <button data-target="jeju-day" data-action="none">None</button>
+      </div>
+    </div>
+    <div id="jeju-day-filters"></div>
+    <label class="filter-row" style="margin-top:2px">
+      <input type="checkbox" id="show-day-borders" checked>
+      <span>Show region borders</span>
+    </label>
+
     <h2>Trip pins</h2>
     <div id="trip-pins"></div>
 
     <div class="drawer-footer">
-      <span id="version-tag">v2026.05.28</span>
+      <span id="version-tag">v2026.06.19</span>
       <button id="check-updates" type="button">Check for updates</button>
     </div>
   </aside>
@@ -269,6 +282,26 @@ function categoryFor(type) {
   return CATEGORY_GROUPS[CATEGORY_GROUPS.length - 1]; // Other
 }
 
+// Jeju 3-day plan, sorted by island region (from the hand-drawn map):
+//   Day 1 = West/North  (Aewol base, Hyeopjae, Arte, oreum, lava forest, Jeju City)
+//   Day 2 = South        (Seogwipo coast: Cheonjeyeon, Jusangjeolli, Lee Jung-seop, Camellia Hill)
+//   Day 3 = East         (Sehwa/Gujwa, Seongsan, Bijarim, Jeju Folk Village, Aqua Planet)
+// The three rectangles tile Jeju's bounding box; jejuDayFor() uses the same cut lines.
+const JEJU_LNG_CUT = 126.62;   // east of this = Day 3
+const JEJU_LAT_CUT = 33.35;    // west side: north of this = Day 1, south = Day 2
+const JEJU_DAY_REGIONS = [
+  { day: 1, label: "Day 1 · West",  color: "#d32f2f", bounds: [[JEJU_LAT_CUT, 126.10], [33.62, JEJU_LNG_CUT]] },
+  { day: 2, label: "Day 2 · South", color: "#1565c0", bounds: [[33.08, 126.10], [JEJU_LAT_CUT, JEJU_LNG_CUT]] },
+  { day: 3, label: "Day 3 · East",  color: "#2e7d32", bounds: [[33.08, JEJU_LNG_CUT], [33.62, 127.00]] },
+];
+const dayColor = d => (JEJU_DAY_REGIONS.find(r => r.day === d) || {}).color || "#757575";
+
+function jejuDayFor(place) {
+  if (place.region !== 'Jeju') return null;      // day regions only apply to Jeju POIs
+  if (place.lng >= JEJU_LNG_CUT) return 3;
+  return place.lat >= JEJU_LAT_CUT ? 1 : 2;
+}
+
 // Trip-base pins
 const TRIP_PINS = [
   { name: "Orakai Insadong Suites", desc: "Seoul base — Jun 21 to Jul 17", lat: 37.5731, lng: 126.9870, color: "#d32f2f" },
@@ -301,6 +334,29 @@ TRIP_PINS.forEach(p => {
   const m = L.marker([p.lat, p.lng], { icon, zIndexOffset: 1000 });
   m.bindPopup(`<div class="pin-popup"><h3>${p.name}</h3><div class="meta">${p.desc}</div></div>`);
   tripLayer.addLayer(m);
+});
+
+// Jeju day-region borders — one rectangle per day, toggled by the Day filter.
+const jejuRegionLayer = L.layerGroup().addTo(map);
+const jejuRegionRects = {};  // day -> { rect, label }
+JEJU_DAY_REGIONS.forEach(r => {
+  const rect = L.rectangle(r.bounds, {
+    color: r.color, weight: 2, opacity: 0.8,
+    fillColor: r.color, fillOpacity: 0.06,
+    interactive: false,
+  });
+  // Corner label pinned to the region's top edge
+  const labelLat = r.bounds[1][0] - 0.015;
+  const labelLng = r.bounds[0][1] + (r.bounds[1][1] - r.bounds[0][1]) / 2;
+  const label = L.marker([labelLat, labelLng], {
+    interactive: false,
+    icon: L.divIcon({
+      className: '',
+      html: `<div style="background:${r.color};color:#fff;font-size:11px;font-weight:700;padding:2px 8px;border-radius:10px;white-space:nowrap;box-shadow:0 1px 3px rgba(0,0,0,0.4)">${r.label}</div>`,
+      iconSize: [1, 1], iconAnchor: [0, 0],
+    }),
+  });
+  jejuRegionRects[r.day] = { rect, label };
 });
 
 // Visited state — persisted in localStorage; key = "name_en@lat,lng" (5 dp).
@@ -344,12 +400,14 @@ PLACES.forEach(place => {
     </div>
   `);
   if (isVisited) m.setOpacity(0.4);
-  markers.push({ marker: m, place, group, key });
+  markers.push({ marker: m, place, group, key, day: jejuDayFor(place) });
 });
 
 // Filter state
 const activeRegions = new Set();
 const activeCategories = new Set(CATEGORY_GROUPS.map(g => g.name));
+const activeDays = new Set([1, 2, 3]);   // Jeju day-plan filter
+let showDayBorders = true;
 let searchQuery = "";
 
 // Build region & category filters
@@ -378,6 +436,31 @@ CATEGORY_GROUPS.forEach(g => {
   categoryFilters.appendChild(row);
 });
 
+// Jeju day-plan filter — count Jeju POIs per day
+const dayCounts = { 1: 0, 2: 0, 3: 0 };
+PLACES.forEach(p => { const d = jejuDayFor(p); if (d) dayCounts[d]++; });
+const dayFilters = document.getElementById('jeju-day-filters');
+JEJU_DAY_REGIONS.forEach(r => {
+  const row = document.createElement('label');
+  row.className = 'filter-row';
+  row.innerHTML = `<input type="checkbox" checked data-day="${r.day}"><span class="swatch" style="background:${r.color};border-radius:2px"></span><span>${r.label}</span><span class="count">${dayCounts[r.day]}</span>`;
+  dayFilters.appendChild(row);
+});
+
+function syncDayBorders() {
+  JEJU_DAY_REGIONS.forEach(r => {
+    const { rect, label } = jejuRegionRects[r.day];
+    const shouldShow = showDayBorders && activeDays.has(r.day);
+    if (shouldShow) {
+      if (!jejuRegionLayer.hasLayer(rect)) jejuRegionLayer.addLayer(rect);
+      if (!jejuRegionLayer.hasLayer(label)) jejuRegionLayer.addLayer(label);
+    } else {
+      jejuRegionLayer.removeLayer(rect);
+      jejuRegionLayer.removeLayer(label);
+    }
+  });
+}
+
 // Trip pin list in sidebar
 const tripPinsEl = document.getElementById('trip-pins');
 TRIP_PINS.forEach(p => {
@@ -393,18 +476,20 @@ function applyFilters() {
   cluster.clearLayers();
   let visible = 0;
   const q = searchQuery.toLowerCase().trim();
-  markers.forEach(({ marker, place, group, key }) => {
+  markers.forEach(({ marker, place, group, key, day }) => {
     const regionOK = activeRegions.has(place.region);
     const catOK = activeCategories.has(group.name);
+    const dayOK = day === null || activeDays.has(day);   // only gates Jeju POIs
     const visitedOK = !hideVisited || !visited.has(key);
     const searchOK = !q || (place.name_en || '').toLowerCase().includes(q)
                         || (place.name_kr || '').toLowerCase().includes(q)
                         || (place.address || '').toLowerCase().includes(q);
-    if (regionOK && catOK && visitedOK && searchOK) {
+    if (regionOK && catOK && dayOK && visitedOK && searchOK) {
       cluster.addLayer(marker);
       visible++;
     }
   });
+  syncDayBorders();
   document.getElementById('stats').textContent = `${visible} of ${markers.length} places visible`;
   document.getElementById('visited-count').textContent = visited.size;
   const fab = document.getElementById('fab-badge');
@@ -437,6 +522,21 @@ categoryFilters.addEventListener('change', e => {
   const c = e.target.dataset.category;
   if (e.target.checked) activeCategories.add(c); else activeCategories.delete(c);
   applyFilters();
+});
+dayFilters.addEventListener('change', e => {
+  const d = Number(e.target.dataset.day);
+  if (e.target.checked) activeDays.add(d); else activeDays.delete(d);
+  applyFilters();
+  // If exactly one day is selected, zoom to that Jeju region
+  if (activeDays.size === 1) {
+    const only = [...activeDays][0];
+    map.flyToBounds(jejuRegionRects[only].rect.getBounds().pad(0.05), { duration: 0.7 });
+    if (window.matchMedia('(max-width: 700px)').matches) drawerClose();
+  }
+});
+document.getElementById('show-day-borders').addEventListener('change', e => {
+  showDayBorders = e.target.checked;
+  syncDayBorders();
 });
 document.getElementById('search').addEventListener('input', e => {
   searchQuery = e.target.value;
