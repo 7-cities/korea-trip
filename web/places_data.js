@@ -3495,5 +3495,20 @@ const PLACES = [
     "geocode_source": "google_maps_playwright",
     "lat": 33.2825128,
     "lng": 126.2242838
+  },
+  {
+    "type": "Coffee & Bakery",
+    "name_kr": "달치즈 구좌세화점",
+    "name_en": "Dalcheese Sehwa",
+    "address": "제주시 구좌읍 해녀박물관길 35 (세화리 1476-12)",
+    "google_url": "https://www.google.com/maps/search/?api=1&query=달치즈+구좌세화점",
+    "naver_url": "https://naver.me/FEgnqPK7",
+    "notes": "Cheese cafe near Haenyeo Museum, Sehwa (east coast). Dairy-forward — fine on the no-meat+milk rule as long as not paired with meat",
+    "region": "Jeju",
+    "source": "manual_2026-06-19",
+    "geocode_query": "제주 제주시 구좌읍 해녀박물관길 35 달치즈",
+    "geocode_source": "google_maps_playwright",
+    "lat": 33.5241707,
+    "lng": 126.8620995
   }
 ];
